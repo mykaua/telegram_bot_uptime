@@ -12,6 +12,6 @@ How to add the script to autostart with a server:
 
 * make script executable: chmod +x main.py
 * open crontab: crontab -e
-* add script to crontab: ``` @reboot python /root/main.py & ```
+* add script to crontab: ``` @reboot nohup python /root/main.py & ```
 
 
