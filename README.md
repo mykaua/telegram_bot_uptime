@@ -18,3 +18,17 @@ or
 
 * edit /etc/rc.local file
 * add ```python /root/main.py & ``` before ```exit 0```
+
+or 
+
+Add to systemd:
+Example of configuration you may find in [the file](systemctl)
+* ```cd /lib/systemd/system```
+* ```vim uptime-python.service```
+* ```chmod 644 uptime-python.service```
+* ```systemctl daemon-reload```
+* ```systemctl enable uptime-python.service```
+
+
+#### PS:
+* group or channel id - put ```-``` before id

@@ -1,6 +1,8 @@
 from pytgbot import Bot
 import subprocess
 import logging
+import time
+import sys
 
 
 logger = logging.getLogger(__name__)
@@ -31,15 +33,15 @@ Uptime  → /uptime
 
 # Check if we have connection to internet
 def ping_check():
-    for ping in range(1,100):
-        address = "8.8.8.8"
-        res = subprocess.call(['ping', '-c', '5', address])
-        if res == 0:
-            print ("ping to", address, "OK")
+    site = "8.8.8.8"
+    while True:
+        status = subprocess.run(["ping", "-c", "5", site], capture_output=True)
+        if status.returncode == 0:
+            print ("Network is up and running!")
             return True
-        else:
-            print ("ping to", address, "failed!")
-    return False
+        print("Network is down...")
+        time.sleep(15)
+
 
 
 # reply to message

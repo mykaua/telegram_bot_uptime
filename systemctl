@@ -1,0 +1,19 @@
+ [Unit]
+ Description=My Uptime Service
+ After=network-online.target
+
+ [Service]
+ Type=idle
+ ExecStart=/usr/bin/python /root/main.py
+
+ [Install]
+ WantedBy=network-online.target
+
+
+## uptime-python
+# cd /lib/systemd/system
+# vim uptime-python.service
+# chmod 644 uptime-python.service
+# systemctl daemon-reload
+# systemctl enable uptime-python.service
+
